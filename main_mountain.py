@@ -49,11 +49,12 @@ class Landing(pygame.sprite.Sprite):
         self.rect.y = pos[1]
 
     def update(self):
-        self.rect = self.rect.move(0, 1)
+        if not pygame.sprite.collide_mask(self, mountain):
+            self.rect = self.rect.move(0, 1)
 
 # def main():
 clock = pygame.time.Clock()
-pygame.display.set_caption('Заголовок окна')
+pygame.display.set_caption('Десант')
 all_sprites = pygame.sprite.Group()
 # место для новых спрайтов
 mountain = Mountain()
